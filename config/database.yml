@@ -1,0 +1,13 @@
+login: &login
+  adapter: mysql2
+  username: root
+  password: letmein
+  host: localhost
+
+production:
+  <<: *login
+  database: tasks_production
+
+development:
+  <<: *login
+  database: tasks_development

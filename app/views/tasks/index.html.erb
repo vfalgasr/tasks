@@ -1,0 +1,27 @@
+<h1>Listado de Tareas</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Descripción</th>
+    <th>Completado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.title %></td>
+    <td><%= task.description %></td>
+    <td><%= task.completed %></td>
+    <td><%= link_to 'Visualizar', task %></td>
+    <td><%= link_to 'Editar', edit_task_path(task) %></td>
+    <td><%= link_to 'Eliminar', task, method: :delete, data: { confirm: 'Estás seguro ?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Task', new_task_path %>
